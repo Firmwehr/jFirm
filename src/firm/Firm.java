@@ -14,6 +14,22 @@ import firm.nodes.Nodes;
 
 public final class Firm {
 
+	public static FirmVersion VERSION = FirmVersion.FIRM;
+
+	public enum FirmVersion {
+		FIRM("firm"),
+		DEBUG("firm_debug"),
+		RELEASE("firm_release"),
+		REL_WITH_DEBUG_INFO("firm_rel_with_debug_info");
+
+		private String file;
+		FirmVersion(String file) {
+			this.file = file;
+		}
+
+		public String getFileName() { return file; }
+	}
+
 	public interface binding_callback extends Library {
 
 		interface FirmCallback extends Callback {
@@ -76,7 +92,7 @@ public final class Firm {
 	public static void init(String targetTriple, String[] targetOptions) {
 		/* hack to catch asserts... */
 		if (binding_cb == null) {
-			binding_cb = (binding_callback) Native.loadLibrary("firm",
+			binding_cb = (binding_callback) Native.loadLibrary(VERSION.getFileName(),
 					binding_callback.class);
 		}
 

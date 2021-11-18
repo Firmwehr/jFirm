@@ -3,10 +3,11 @@ package firm.bindings;
 /* WARNING: Automatically generated file */
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
+import firm.Firm;
 
 public class binding_irio {
 	static {
-		Native.register("firm");
+		Native.register(Firm.VERSION.getFileName());
 	}
 
 	public static enum __codecvt_result {

@@ -79,7 +79,7 @@ public final class DebugInfo {
 			return;
 
 		if (binding_dbg == null) {
-			binding_dbg = (binding_dbginfo) Native.loadLibrary("firm",
+			binding_dbg = (binding_dbginfo) Native.loadLibrary(Firm.VERSION.getFileName(),
 					binding_dbginfo.class);
 		}
 		binding_dbg.ir_set_debug_retrieve(handler);
