@@ -11,7 +11,7 @@
 	<property name="fullreleasedir" location="${workdir}/${releasename}"/>
 	<property name="releasefile" location="${workdir}/${projectname}-${version}.zip"/>
 	<property name="releasefile-tgz" location="${workdir}/${projectname}-${version}.tgz"/>
-	<property name="build" location="${basedir}/classes"/>
+	<property name="build" location="${basedir}/target"/>
 	<property name="lib" location="${basedir}/lib"/>
 	<property name="make.exe" value="make"/>
 	<property name="bfmain" value="example.BrainFuck.Main"/>
@@ -39,6 +39,10 @@
 		<jar jarfile="${build}/${jar}">
 			<fileset dir="${build}" excludes="${jar},examples/**"/>
 			<fileset dir="native"/>
+		</jar>
+
+		<jar jarfile="${build}/jfirm-sources.jar">
+			<fileset dir="${src}" excludes="${jar},examples/**"/>
 		</jar>
 	</target>
 
