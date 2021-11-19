@@ -11,3 +11,5 @@
 /lib/64
 /a.out
 *.s
+
+/target/
