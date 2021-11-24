@@ -14,7 +14,7 @@ import firm.nodes.Nodes;
 
 public final class Firm {
 
-	enum FirmVersion {
+	public enum FirmVersion {
 		FIRM("firm"),
 		DEBUG("firm_debug"),
 		RELEASE("firm_release"),
