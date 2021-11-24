@@ -14,6 +14,8 @@ import firm.nodes.Nodes;
 
 public final class Firm {
 
+	public static FirmVersion VERSION = FirmVersion.FIRM;
+
 	public enum FirmVersion {
 		FIRM("firm"),
 		DEBUG("firm_debug"),
@@ -82,19 +84,15 @@ public final class Firm {
 		}
 	}
 
-	public static void init(String targetTriple, String[] targetOptions) {
-		init(targetTriple, targetOptions, FirmVersion.FIRM);
-	}
-
 	/**
 	 * Initializes the firm library. Must be called before using any operations
 	 * of the firm library (except querying the version numbers) Must not be
 	 * called more than once unless there was an finish() call.
 	 */
-	public static void init(String targetTriple, String[] targetOptions, FirmVersion version) {
+	public static void init(String targetTriple, String[] targetOptions) {
 		/* hack to catch asserts... */
 		if (binding_cb == null) {
-			binding_cb = (binding_callback) Native.loadLibrary(version.getFileName(),
+			binding_cb = (binding_callback) Native.loadLibrary(VERSION.getFileName(),
 					binding_callback.class);
 		}
 

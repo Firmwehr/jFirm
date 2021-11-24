@@ -4,13 +4,14 @@ import com.sun.jna.Callback;
 import com.sun.jna.LastErrorException;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
+import firm.Firm;
 
 public class binding_libc {
 	static {
 		if (System.getProperty("os.name").startsWith("Windows")) {
 			Native.register("msvcrt");
 		} else {
-			Native.register("firm");
+			Native.register(Firm.VERSION.getFileName());
 		}
 	}
 
