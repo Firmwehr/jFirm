@@ -8,6 +8,9 @@ import com.sun.jna.Memory;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Convenience class that helps constructing debug info that can be attached
@@ -28,6 +31,11 @@ public final class DebugInfo {
 			super(p);
 		}
 		public SrcLog() {
+		}
+
+		@Override
+		protected List<String> getFieldOrder() {
+			return Arrays.asList("file", "line", "column");
 		}
 
 		public static class ByValue extends SrcLog implements Structure.ByValue {
